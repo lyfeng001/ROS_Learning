@@ -1,0 +1,19 @@
+<launch>
+
+    
+  <node 
+    name="serial_node" 
+    pkg="rosserial_python" 
+    type="serial_node.py" 
+    args="/dev/ttyUSB0"
+    respawn="true"/>
+   
+  <node 
+    name="publish_servo" 
+    pkg="snake_test" 
+    type="publish_servo" 
+    respawn="true"/>
+    
+    
+
+</launch>

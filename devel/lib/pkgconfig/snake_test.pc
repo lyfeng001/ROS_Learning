@@ -1,0 +1,8 @@
+prefix=/home/f/catkin_us/devel
+
+Name: snake_test
+Description: Description of snake_test
+Version: 0.0.0
+Cflags: -I/home/f/catkin_us/devel/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs roscpp std_msgs tf2 tf2_geometry_msgs tf2_ros message_runtime

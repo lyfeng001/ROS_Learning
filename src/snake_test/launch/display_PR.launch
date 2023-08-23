@@ -1,0 +1,26 @@
+<launch>
+  <arg
+    name="model" />
+  <arg
+    name="gui"
+    default="False" />
+  <param
+    name="robot_description"
+    command="$(find xacro)/xacro $(find snake_test)/robot_description/urdf/snake_PR.xacro" />
+  <param
+    name="use_gui"
+    value="$(arg gui)" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz" 
+    args="-d $(find snake_test)/robot_description/rviz/snake_PR_rviz.rviz"/>
+</launch>

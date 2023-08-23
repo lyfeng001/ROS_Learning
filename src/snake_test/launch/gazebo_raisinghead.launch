@@ -1,0 +1,14 @@
+<launch>
+
+  <include file="$(find snake_test)/launch/robot_description.launch" />
+  
+  <include 
+    file="$(find snake_test)/launch/snake_control_PR.launch" />
+    
+  <node 
+    name="snake_control_gazebo_raisinghead" 
+    pkg="snake_test" 
+    type="snake_control_gazebo_raisinghead" 
+    respawn="true"/>
+
+</launch>

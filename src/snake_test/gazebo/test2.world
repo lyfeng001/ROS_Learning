@@ -1,0 +1,1577 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='snake'>
+      <link name='base_footprint'>
+        <inertial>
+          <pose>-0.0114 0.026545 -1.1e-05 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.20401e-08</ixy>
+            <ixz>1.59949e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>3.34829e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/base_link.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='base_footprint_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.001 0.001 0.001</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__base_link_visual_1'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/base_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint1' type='revolute'>
+        <pose relative_to='base_footprint'>0 0 0 1.5708 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>link1</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link1'>
+        <pose relative_to='joint1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link1_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/link1.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/link1.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint2' type='revolute'>
+        <pose relative_to='link1'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link1</parent>
+        <child>link2</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link2'>
+        <pose relative_to='joint2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link2_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint3' type='revolute'>
+        <pose relative_to='link2'>0.033148 -0.0276 -0.0276 1.5708 -0 0</pose>
+        <parent>link2</parent>
+        <child>link3</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link3'>
+        <pose relative_to='joint3'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link3_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link3_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint4' type='revolute'>
+        <pose relative_to='link3'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link3</parent>
+        <child>link4</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link4'>
+        <pose relative_to='joint4'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link4_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link4_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint5' type='revolute'>
+        <pose relative_to='link4'>0.033148 -0.0276 -0.0276 1.5708 -0 0</pose>
+        <parent>link4</parent>
+        <child>link5</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link5'>
+        <pose relative_to='joint5'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link5_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link5_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint6' type='revolute'>
+        <pose relative_to='link5'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link5</parent>
+        <child>link6</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link6'>
+        <pose relative_to='joint6'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link6_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link6_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint7' type='revolute'>
+        <pose relative_to='link6'>0.033148 -0.0276 -0.0276 1.5708 -0 0</pose>
+        <parent>link6</parent>
+        <child>link7</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link7'>
+        <pose relative_to='joint7'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link7_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link7_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint8' type='revolute'>
+        <pose relative_to='link7'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link7</parent>
+        <child>link8</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link8'>
+        <pose relative_to='joint8'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link8_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link8_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint9' type='revolute'>
+        <pose relative_to='link8'>0.033148 -0.0276 -0.0276 1.5708 -0 0</pose>
+        <parent>link8</parent>
+        <child>link9</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link9'>
+        <pose relative_to='joint9'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link9_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link9_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint10' type='revolute'>
+        <pose relative_to='link9'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link9</parent>
+        <child>link10</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link10'>
+        <pose relative_to='joint10'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link10_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link10_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint11' type='revolute'>
+        <pose relative_to='link10'>0.033148 -0.0276 -0.0276 1.5708 -0 0</pose>
+        <parent>link10</parent>
+        <child>link11</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link11'>
+        <pose relative_to='joint11'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link11_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link11_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint12' type='revolute'>
+        <pose relative_to='link11'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link11</parent>
+        <child>link12</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link12'>
+        <pose relative_to='joint12'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link12_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link12_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint13' type='revolute'>
+        <pose relative_to='link12'>0.033148 -0.0276 -0.0276 1.5708 -0 0</pose>
+        <parent>link12</parent>
+        <child>link13</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link13'>
+        <pose relative_to='joint13'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link13_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link13_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint14' type='revolute'>
+        <pose relative_to='link13'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link13</parent>
+        <child>link14</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link14'>
+        <pose relative_to='joint14'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link14_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link14_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint15' type='revolute'>
+        <pose relative_to='link14'>0.033148 -0.0276 -0.0276 1.5708 -0 0</pose>
+        <parent>link14</parent>
+        <child>link15</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link15'>
+        <pose relative_to='joint15'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.0066 0.002752 -0.024443 0 -0 0</pose>
+          <mass>0.046642</mass>
+          <inertia>
+            <ixx>1.3666e-05</ixx>
+            <ixy>6.742e-07</ixy>
+            <ixz>-6.6336e-07</ixz>
+            <iyy>1.1195e-05</iyy>
+            <iyz>3.1036e-06</iyz>
+            <izz>1.1233e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link15_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link15_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/servo.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='joint16' type='revolute'>
+        <pose relative_to='link15'>0.013 0.0276 -0.0276 -1.5708 0 0</pose>
+        <parent>link15</parent>
+        <child>link16</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-0.8</lower>
+            <upper>0.8</upper>
+            <effort>20</effort>
+            <velocity>5</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link16'>
+        <pose relative_to='joint16'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.021749 -0.001056 -0.027611 0 -0 0</pose>
+          <mass>0.05761</mass>
+          <inertia>
+            <ixx>2.7384e-05</ixx>
+            <ixy>-3.2039e-08</ixy>
+            <ixz>1.5994e-08</ixz>
+            <iyy>2.8839e-05</iyy>
+            <iyz>2.7878e-10</iyz>
+            <izz>1.2924e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link16_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link16_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/cherrynova/catkin_ws/src/snake/snake_test/meshes/snake_PY/body.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+        <robotNamespace>/snake</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <topicName>/snake/base_link_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+        <bodyName>base_footprint</bodyName>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>1.5708 -0 0</rpyOffset>
+        <ignition::corrected_offsets>1</ignition::corrected_offsets>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link2</bodyName>
+        <topicName>/snake/link2_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link4</bodyName>
+        <topicName>/snake/link4_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link6</bodyName>
+        <topicName>/snake/link6_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link8</bodyName>
+        <topicName>/snake/link8_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link10</bodyName>
+        <topicName>/snake/link10_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link12</bodyName>
+        <topicName>/snake/link12_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link14</bodyName>
+        <topicName>/snake/link14_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <static>0</static>
+      <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+        <alwaysOn>1</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <bodyName>link16</bodyName>
+        <topicName>/snake/link16_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <pose>1.2 -1.2 0 0 -0 0</pose>
+    </model>
+    <model name='unit_cylinder'>
+      <pose>0.03462 -0.097547 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.145833</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.145833</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <state world_name='default'>
+      <sim_time>77 972000000</sim_time>
+      <real_time>96 386181221</real_time>
+      <wall_time>1689416238 78911611</wall_time>
+      <iterations>77972</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='snake'>
+        <pose>-0.126769 -2.99097 0.056967 -0.09457 -0.254413 0.217255</pose>
+        <scale>1 1 1</scale>
+        <link name='base_footprint'>
+          <pose>-0.126769 -2.99097 0.056967 -0.09457 -0.254413 0.217255</pose>
+          <velocity>0.031156 -0.099931 -0.062774 0.439155 0.735975 0.709664</velocity>
+          <acceleration>5.33488 -4.33571 2.45851 -2.15797 -0.899876 -1.87853</acceleration>
+          <wrench>0.307342 -0.24978 0.141635 0 -0 0</wrench>
+        </link>
+        <link name='link1'>
+          <pose>-0.126772 -2.99097 0.056966 1.47865 0.118443 0.182428</pose>
+          <velocity>0.031289 -0.099852 -0.062361 0.607764 -0.150818 0.794603</velocity>
+          <acceleration>2.40833 9.26703 9.09729 -0.425394 -0.789703 1.1658</acceleration>
+          <wrench>0.11233 0.432233 0.424316 0 -0 0</wrench>
+        </link>
+        <link name='link10'>
+          <pose>-0.007966 -2.82065 0.084217 -0.105094 0.164963 0.833126</pose>
+          <velocity>-0.047929 0.012654 -0.021394 -1.10772 0.367921 -0.301038</velocity>
+          <acceleration>-0.889914 1.30366 -2.95173 1.12671 -0.999442 -0.399057</acceleration>
+          <wrench>-0.051268 0.075104 -0.170049 0 -0 0</wrench>
+        </link>
+        <link name='link11'>
+          <pose>0.033766 -2.81985 0.054561 1.46589 0.156763 0.833899</pose>
+          <velocity>-0.058681 -0.032795 -0.038153 0.517117 -1.05346 -0.072111</velocity>
+          <acceleration>-3.96356 1.21862 1.97861 -1.39162 -0.466007 -0.618643</acceleration>
+          <wrench>-0.184868 0.056839 0.092286 0 -0 0</wrench>
+        </link>
+        <link name='link12'>
+          <pose>0.022501 -2.78712 0.076791 -0.155281 0.106916 0.453626</pose>
+          <velocity>-0.080075 -0.042725 -0.034226 0.545468 -1.05994 0.034907</velocity>
+          <acceleration>-4.40045 7.84155 21.6072 0.111722 -1.12072 2.09579</acceleration>
+          <wrench>-0.25351 0.451752 1.24479 0 -0 0</wrench>
+        </link>
+        <link name='link13'>
+          <pose>0.063737 -2.8021 0.050386 1.41091 -0.263866 0.512138</pose>
+          <velocity>-0.051812 -0.027009 0.001319 0.128359 -0.282108 -0.076784</velocity>
+          <acceleration>2.8495 4.79432 21.4728 -2.79093 -0.591625 -3.13966</acceleration>
+          <wrench>0.132906 0.223617 1.00153 0 -0 0</wrench>
+        </link>
+        <link name='link14'>
+          <pose>0.053974 -2.77129 0.075838 -0.08169 -0.296836 0.231494</pose>
+          <velocity>-0.057125 -0.029784 0.002316 0.083037 -0.284933 0.052437</velocity>
+          <acceleration>10.2229 8.47929 -12.4294 -0.489986 -1.03705 1.68704</acceleration>
+          <wrench>0.58894 0.488492 -0.716056 0 -0 0</wrench>
+        </link>
+        <link name='link15'>
+          <pose>0.098843 -2.79129 0.061382 1.48936 -0.288267 0.23076</pose>
+          <velocity>-0.052459 -0.026404 0.013134 -0.274163 1.42791 -0.089505</velocity>
+          <acceleration>9.25497 11.5802 -22.0924 0.735551 -1.50479 -2.46648</acceleration>
+          <wrench>0.43167 0.540125 -1.03043 0 -0 0</wrench>
+        </link>
+        <link name='link16'>
+          <pose>0.097179 -2.76112 0.089299 -0.079905 -0.288681 0.225436</pose>
+          <velocity>-0.010158 -0.018677 0.007108 -0.629845 1.44295 1.05405</velocity>
+          <acceleration>3.49558 -1.41208 8.16282 3.10072 -0.567481 2.28794</acceleration>
+          <wrench>0.201381 -0.08135 0.47026 0 -0 0</wrench>
+        </link>
+        <link name='link2'>
+          <pose>-0.116629 -2.95857 0.080199 -0.056542 0.138911 0.458278</pose>
+          <velocity>0.001861 -0.105696 -0.04113 0.682428 -0.074858 1.46274</velocity>
+          <acceleration>-16.0028 26.896 -24.5711 3.13157 1.54356 1.45594</acceleration>
+          <wrench>-0.921919 1.54948 -1.41554 0 -0 0</wrench>
+        </link>
+        <link name='link3'>
+          <pose>-0.077544 -2.97175 0.049864 1.5142 0.14064 0.458017</pose>
+          <velocity>0.023662 -0.027626 -0.046942 0.770037 -0.228708 1.48294</velocity>
+          <acceleration>-21.1937 32.6936 -36.9392 1.68637 -0.835554 -2.77149</acceleration>
+          <wrench>-0.988519 1.52489 -1.72292 0 -0 0</wrench>
+        </link>
+        <link name='link4'>
+          <pose>-0.075637 -2.93834 0.073776 6.7e-05 0.151012 0.840976</pose>
+          <velocity>-0.029541 -0.04071 -0.021001 0.551681 -0.400819 0.00077</velocity>
+          <acceleration>6.90124 17.9228 -7.51072 -2.62872 0.369443 2.45921</acceleration>
+          <wrench>0.39758 1.03253 -0.432693 0 -0 0</wrench>
+        </link>
+        <link name='link5'>
+          <pose>-0.035977 -2.93539 0.041513 1.57064 -0.208568 0.842148</pose>
+          <velocity>-0.018733 -0.030325 -0.004532 0.48481 -0.285471 -0.231325</velocity>
+          <acceleration>31.4827 -10.2864 4.93009 1.46824 -1.32715 -1.20966</acceleration>
+          <wrench>1.46842 -0.479779 0.229949 0 -0 0</wrench>
+        </link>
+        <link name='link6'>
+          <pose>-0.051918 -2.91179 0.071199 -0.05779 -0.200603 1.1247</pose>
+          <velocity>-0.022428 -0.044111 0.001925 0.309389 -0.50212 1.09983</velocity>
+          <acceleration>21.8034 -3.61671 4.82149 -2.4018 1.35611 -2.31925</acceleration>
+          <wrench>1.25609 -0.208359 0.277766 0 -0 0</wrench>
+        </link>
+        <link name='link7'>
+          <pose>-0.009376 -2.8904 0.05237 1.51328 -0.190589 1.12412</pose>
+          <velocity>-0.037403 0.005381 0.029163 -0.574395 -0.065852 0.978557</velocity>
+          <acceleration>6.52196 4.4918 4.209 0.168243 1.47568 1.78108</acceleration>
+          <wrench>0.304197 0.209507 0.196316 0 -0 0</wrench>
+        </link>
+        <link name='link8'>
+          <pose>-0.032278 -2.87074 0.080329 -0.057679 -0.190539 1.12589</pose>
+          <velocity>-0.05908 -0.002644 0.015808 -0.427357 0.079285 -0.038036</velocity>
+          <acceleration>0.574613 1.83677 -0.34737 -0.397332 1.07043 2.61527</acceleration>
+          <wrench>0.033103 0.105816 -0.020012 0 -0 0</wrench>
+        </link>
+        <link name='link9'>
+          <pose>0.010152 -2.84947 0.061119 1.51325 0.186878 1.10417</pose>
+          <velocity>-0.060153 -0.01394 0.002846 -1.10306 0.413557 -0.096372</velocity>
+          <acceleration>4.45644 -1.71246 -1.20108 2.03653 0.263399 0.916357</acceleration>
+          <wrench>0.207857 -0.079872 -0.056021 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_cylinder'>
+        <pose>-2e-06 0 0.499991 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2e-06 0 0.499991 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>5 -5 2 0 0.275643 2.35619</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>

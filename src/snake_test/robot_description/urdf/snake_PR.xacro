@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="snake_PR">
+  <xacro:include filename="$(find snake_test)/robot_description/urdf/snake_description_PR.xacro"/> 
+    
+  <gazebo>
+      <plugin 
+          name="gazebo_ros_control" 
+          filename="libgazebo_ros_control.so">
+          <robotNamespace>/snake</robotNamespace>
+          <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+  </gazebo>
+
+  <link name="base_footprint">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+            <box size="0.001 0.001 0.001" />
+          </geometry>
+    </visual>
+  </link>   
+
+   <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0020108 9.0747E-06 -0.025428"
+        rpy="0 0 0" />
+      <mass
+        value="0.14384" />
+      <inertia
+        ixx="7.6577E-05"
+        ixy="-7.9588E-12"
+        ixz="-8.8176E-09"
+        iyy="6.729E-05"
+        iyz="2.369E-06"
+        izz="4.0509E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_test/meshes/snake_PR/base_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_test/meshes/snake_PR/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <gazebo reference="base_link">
+    <mu1>0.1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  
+  <gazebo reference="base_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>body_link</bodyName>
+        <updateRateHZ>100.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+  
+  
+  <joint 
+    name="base_footprint_joint" 
+    type="fixed">
+    <origin 
+      xyz="0 0 0" 
+      rpy="1.5708 0 0" />        
+    <parent 
+      link="base_footprint"/>
+    <child 
+      link="base_link" />
+  </joint>
+
+
+  <xacro:link_a parent_link="base_link" child_link="link1" joint_name="joint1"/>
+  <xacro:link_b parent_link="link1" child_link="link2" joint_name="joint2"/>
+  <xacro:link_a parent_link="link2" child_link="link3" joint_name="joint3"/>
+  <xacro:link_b parent_link="link3" child_link="link4" joint_name="joint4"/>
+  <xacro:link_a parent_link="link4" child_link="link5" joint_name="joint5"/>
+  <xacro:link_b parent_link="link5" child_link="link6" joint_name="joint6"/>
+  <xacro:link_a parent_link="link6" child_link="link7" joint_name="joint7"/>
+  <xacro:link_b parent_link="link7" child_link="link8" joint_name="joint8"/>
+  <xacro:link_a parent_link="link8" child_link="link9" joint_name="joint9"/>
+  <xacro:link_b parent_link="link9" child_link="link10" joint_name="joint10"/>
+  <xacro:link_a parent_link="link10" child_link="link11" joint_name="joint11"/>
+  <xacro:link_b parent_link="link11" child_link="link12" joint_name="joint12"/>
+  <xacro:link_a parent_link="link12" child_link="link13" joint_name="joint13"/>
+  <xacro:link_b parent_link="link13" child_link="link14" joint_name="joint14"/>
+  <xacro:link_a parent_link="link14" child_link="link15" joint_name="joint15"/>
+  <xacro:link_b parent_link="link15" child_link="link16" joint_name="joint16"/>
+  <xacro:link_a parent_link="link16" child_link="link17" joint_name="joint17"/>
+  <xacro:link_b parent_link="link17" child_link="link18" joint_name="joint18"/>
+  <xacro:link_a parent_link="link18" child_link="link19" joint_name="joint19"/>
+  <xacro:link_b parent_link="link19" child_link="link20" joint_name="joint20"/>
+  <xacro:link_a parent_link="link20" child_link="link21" joint_name="joint21"/>
+  <xacro:link_b parent_link="link21" child_link="link22" joint_name="joint22"/>
+  <xacro:link_a parent_link="link22" child_link="link23" joint_name="joint23"/>
+  <xacro:link_b parent_link="link23" child_link="link24" joint_name="joint24"/>
+  <xacro:link_a parent_link="link24" child_link="link25" joint_name="joint25"/>
+  <xacro:link_b parent_link="link25" child_link="link26" joint_name="joint26"/>
+  <xacro:link_a parent_link="link26" child_link="link27" joint_name="joint27"/>
+  <xacro:link_b parent_link="link27" child_link="link28" joint_name="joint28"/>
+  <xacro:link_a parent_link="link28" child_link="link29" joint_name="joint29"/>
+  <xacro:link_b parent_link="link29" child_link="link30" joint_name="joint30"/>
+  <xacro:link_a parent_link="link30" child_link="link31" joint_name="joint31"/>
+  <xacro:link_b parent_link="link31" child_link="link32" joint_name="joint32"/>
+  <xacro:link_a parent_link="link32" child_link="link33" joint_name="joint33"/>
+
+  <link
+    name="rear_link">
+    <inertial>
+      <origin
+        xyz="0.0026619 -1.4998E-17 0.040221"
+        rpy="0 0 0" />
+      <mass
+        value="0.10865" />
+      <inertia
+        ixx="6.4597E-05"
+        ixy="1.597E-21"
+        ixz="8.8244E-09"
+        iyy="5.536E-05"
+        iyz="-1.1865E-20"
+        izz="3.1735E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_test/meshes/snake_PR/rear_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://snake_test/meshes/snake_PR/rear_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="rear_link">
+    <mu1>0.1</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <joint
+    name="joint34"
+    type="revolute">
+    <origin
+      xyz="0.0705 0 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="link33" />
+    <child
+      link="rear_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="5" />
+  </joint>
+
+
+  <xacro:transision number="1"/>
+  <xacro:transision number="2"/>
+  <xacro:transision number="3"/>
+  <xacro:transision number="4"/>
+  <xacro:transision number="5"/>
+  <xacro:transision number="6"/>
+  <xacro:transision number="7"/>
+  <xacro:transision number="8"/>
+  <xacro:transision number="9"/>
+  <xacro:transision number="10"/>
+  <xacro:transision number="11"/>
+  <xacro:transision number="12"/>
+  <xacro:transision number="13"/>
+  <xacro:transision number="14"/>
+  <xacro:transision number="15"/>
+  <xacro:transision number="16"/>
+  <xacro:transision number="17"/>
+  <xacro:transision number="18"/>
+  <xacro:transision number="19"/>
+  <xacro:transision number="20"/>
+  <xacro:transision number="21"/>
+  <xacro:transision number="22"/>
+  <xacro:transision number="23"/>
+  <xacro:transision number="24"/>
+  <xacro:transision number="25"/>
+  <xacro:transision number="26"/>
+  <xacro:transision number="27"/>
+  <xacro:transision number="28"/>
+  <xacro:transision number="29"/>
+  <xacro:transision number="30"/>
+  <xacro:transision number="31"/>
+  <xacro:transision number="32"/>
+  <xacro:transision number="33"/>
+  <xacro:transision number="34"/>
+
+ 
+
+
+
+
+
+</robot>

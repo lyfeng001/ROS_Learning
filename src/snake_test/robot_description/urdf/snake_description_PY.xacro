@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="snake_PY">
+
+  <xacro:macro name="link_servo" params="parent_link child_link joint_name">
+    <link
+      name="${child_link}">
+      <inertial>
+        <origin
+          xyz="0.0065998 0.0027517 -0.024443"
+          rpy="0 0 0" />
+        <mass
+          value="0.046642" />
+        <inertia
+          ixx="1.3666E-05"
+          ixy="6.742E-07"
+          ixz="-6.6336E-07"
+          iyy="1.1195E-05"
+          iyz="3.1036E-06"
+          izz="1.1233E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://snake_test/meshes/snake_PY/servo.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://snake_test/meshes/snake_PY/servo.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+ 
+  
+    <gazebo reference="${child_link}">
+      <mu1>100.0</mu1>
+      <mu2>1</mu2>
+    </gazebo>
+
+
+    <joint
+      name="${joint_name}"
+      type="revolute">
+      <origin
+        xyz="0.033148 -0.0276 -0.0276"
+        rpy="1.5708 0 0" />
+      <parent
+        link="${parent_link}" />
+      <child
+        link="${child_link}" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="-0.80"
+        upper="0.80"
+        effort="20"
+        velocity="5" />
+    </joint> 
+  </xacro:macro>
+  
+    
+  <xacro:macro name="link_body" params="parent_link child_link joint_name">
+    <link
+        name="${child_link}">
+        <inertial>
+            <origin
+                xyz="0.021749 -0.0010555 -0.027611"
+                rpy="0 0 0" />
+        <mass
+            value="0.05761" />
+        <inertia
+            ixx="2.7384E-05"
+            ixy="-3.2039E-08"
+            ixz="1.5994E-08"
+            iyy="2.8839E-05"
+            iyz="2.7878E-10"
+            izz="1.2924E-05" />
+        </inertial>
+        <visual>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                    filename="package://snake_test/meshes/snake_PY/body.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                    rgba="0.75294 0.75294 0.75294 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                    filename="package://snake_test/meshes/snake_PY/body.STL" />
+            </geometry>
+        </collision>
+    </link>
+    
+  
+    <gazebo reference="${child_link}">
+        <mu1>100.0</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+
+
+
+    <joint
+        name="${joint_name}"
+        type="revolute">
+        <origin
+            xyz="0.013 0.0276 -0.0276"
+            rpy="-1.5708 0 0" />
+        <parent
+            link="${parent_link}" />
+        <child
+            link="${child_link}" />
+        <axis
+            xyz="0 0 -1" />
+        <limit
+            lower="-0.80"
+            upper="0.80"
+            effort="20"
+            velocity="5" />
+    </joint> 
+  </xacro:macro>
+
+
+    <xacro:macro name="transision" params="number">
+        <transmission 
+            name="trans${number}">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint 
+                name="joint${number}">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator 
+                name="servo${number}">
+                <mechanicalReduction>1</mechanicalReduction>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+</robot>

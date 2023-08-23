@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="snake_PR">
+
+  <xacro:macro name="link_a" params="parent_link child_link joint_name">
+    <link
+      name="${child_link}">
+      <inertial>
+        <origin
+          xyz="0.026939 0.0010641 -0.0013511"
+          rpy="0 0 0" />
+        <mass
+          value="0.064377" />
+        <inertia
+          ixx="1.1721E-05"
+          ixy="-7.4444E-07"
+          ixz="4.6838E-07"
+          iyy="3.4126E-05"
+          iyz="-2.5756E-07"
+          izz="3.8957E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://snake_test/meshes/snake_PR/link_a.STL"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://snake_test/meshes/snake_PR/link_a.STL"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <gazebo reference="${child_link}">
+        <mu1>0.1</mu1>
+        <mu2>1</mu2>
+      </gazebo>
+
+    <joint
+      name="${joint_name}"
+      type="revolute">
+      <origin
+        xyz="0 0 0.039"
+        rpy="1.5708 -1.5708 -3.1416" />
+      <parent
+        link="${parent_link}" />
+      <child
+        link="${child_link}" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="-1.57"
+        upper="1.57"
+        effort="20"
+        velocity="5" />
+    </joint>
+  </xacro:macro>
+  
+    
+  <xacro:macro name="link_b" params="parent_link child_link joint_name">
+
+    <link
+      name="${child_link}">
+      <inertial>
+        <origin
+          xyz="-1.6762E-08 3.7099E-05 0.020256"
+          rpy="0 0 0" />
+        <mass
+          value="0.035184" />
+        <inertia
+          ixx="1.1979E-05"
+          ixy="-7.9588E-12"
+          ixz="6.8574E-12"
+          iyy="1.193E-05"
+          iyz="2.369E-06"
+          izz="8.7747E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://snake_test/meshes/snake_PR/link_b.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://snake_test/meshes/snake_PR/link_b.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <gazebo reference="${child_link}">
+      <mu1>0.1</mu1>
+      <mu2>1</mu2>
+    </gazebo>
+
+
+    <joint
+      name="${joint_name}"
+      type="revolute">
+      <origin
+        xyz="0.0705 0 0"
+        rpy="1.5708 0 1.5708" />
+      <parent
+        link="${parent_link}" />
+      <child
+        link="${child_link}" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="-3.14"
+        upper="3.14"
+        effort="20"
+        velocity="5" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="transision" params="number">
+      <transmission 
+          name="trans${number}">
+          <type>transmission_interface/SimpleTransmission</type>
+          <joint 
+              name="joint${number}">
+              <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          </joint>
+          <actuator 
+              name="servo${number}">
+              <mechanicalReduction>1</mechanicalReduction>
+              <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+          </actuator>
+      </transmission>
+  </xacro:macro>
+</robot>

@@ -1,0 +1,22 @@
+<launch>
+
+  <include file="$(find snake_test)/launch/robot_description.launch" />
+  
+  <include 
+    file="$(find snake_test)/launch/snake_control_PY.launch" />
+    
+  <node 
+    name="snake_control_gazebo_serpentine_PY" 
+    pkg="snake_test" 
+    type="snake_control_gazebo_serpentine_PY" 
+    respawn="true"/>
+
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz" 
+    args="-d $(find snake_test)/robot_description/rviz/snake_rviz.rviz"/>
+
+
+
+</launch>

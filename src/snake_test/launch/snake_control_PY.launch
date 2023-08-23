@@ -1,0 +1,45 @@
+<launch>
+
+  <rosparam 
+     file="$(find snake_test)/config/snake_control_PY.yaml" 
+     command="load"/>
+
+  <node 
+    name="controller_spawner" 
+    pkg="controller_manager" 
+    type="spawner" 
+    respawn="false"
+    output="screen" 
+    ns="snake" 
+    args="joint_state_controller
+          joint1_position_controller
+          joint2_position_controller
+          joint3_position_controller
+          joint4_position_controller
+          joint5_position_controller
+          joint6_position_controller
+          joint7_position_controller
+          joint8_position_controller
+          joint9_position_controller
+          joint10_position_controller
+          joint11_position_controller
+          joint12_position_controller        
+          joint13_position_controller
+          joint14_position_controller
+          joint15_position_controller
+          joint16_position_controller">
+  </node>
+
+
+  <node 
+    name="robot_state_publisher" 
+    pkg="robot_state_publisher" 
+    type="robot_state_publisher"
+    respawn="false" 
+    output="screen">
+    <remap 
+      from="/joint_states" 
+      to="/snake/joint_states" />
+  </node>
+
+</launch>
