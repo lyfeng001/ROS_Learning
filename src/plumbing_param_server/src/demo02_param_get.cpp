@@ -35,8 +35,26 @@ int main(int argc, char *argv[])
     {
         ROS_INFO("被查询的的变量不存在"); 
     }
-    //method 2 
+    //1.4
+    std::vector<std::string> names;
+    nh.getParamNames(names);
+    for (auto &&name : names)
+    {
+        ROS_INFO("遍历的元素：%s",name.c_str());
+    }
+    //1.5
+    bool flag1 = nh.hasParam("radius");
+    bool flag2 = nh.hasParam("radiusxx");
+    ROS_INFO("radius 存在吗？%d",flag1);
+    ROS_INFO("radiusxx 存在吗？%d",flag2);
+    //1.6
+    std::string key;
+    nh.searchParam("radius",key);
+    ROS_INFO("搜索结果%s",key.c_str());
 
+    //method 2 
+    double radius_param = ros::param::param("radius",100.5);
+    ROS_INFO("radius_param = %.2f");
 
     return 0;
 }
