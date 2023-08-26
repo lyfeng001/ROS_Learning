@@ -54,7 +54,14 @@ int main(int argc, char *argv[])
 
     //method 2 
     double radius_param = ros::param::param("radius",100.5);
-    ROS_INFO("radius_param = %.2f");
+    ROS_INFO("radius_param = %.2f",radius_param);
+
+    std::vector<std::string> names_param;
+    ros::param::getParamNames(names_param);
+    for (auto &&name : names_param)
+    {
+        ROS_INFO("jian:%s",name.c_str());
+    }
 
     return 0;
 }
