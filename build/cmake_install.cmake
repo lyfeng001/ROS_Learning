@@ -135,6 +135,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/f/catkin_us/build/plumbing_param_server/cmake_install.cmake")
   include("/home/f/catkin_us/build/plumbing_pub_sub/cmake_install.cmake")
   include("/home/f/catkin_us/build/plumbing_server_client/cmake_install.cmake")
+  include("/home/f/catkin_us/build/plumbing_test/cmake_install.cmake")
   include("/home/f/catkin_us/build/snake_test/cmake_install.cmake")
 
 endif()
