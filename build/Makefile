@@ -1013,6 +1013,19 @@ turtlesim_generate_messages_py/fast:
 .PHONY : turtlesim_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named test04_param
+
+# Build rule for target.
+test04_param: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test04_param
+.PHONY : test04_param
+
+# fast build rule for target.
+test04_param/fast:
+	$(MAKE) -f plumbing_test/CMakeFiles/test04_param.dir/build.make plumbing_test/CMakeFiles/test04_param.dir/build
+.PHONY : test04_param/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -2533,6 +2546,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... turtlesim_generate_messages_py"
+	@echo "... test04_param"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"

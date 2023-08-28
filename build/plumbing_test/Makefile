@@ -273,6 +273,21 @@ turtlesim_generate_messages_py/fast:
 .PHONY : turtlesim_generate_messages_py/fast
 
 # Convenience name for target.
+plumbing_test/CMakeFiles/test04_param.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test04_param.dir/rule
+.PHONY : plumbing_test/CMakeFiles/test04_param.dir/rule
+
+# Convenience name for target.
+test04_param: plumbing_test/CMakeFiles/test04_param.dir/rule
+
+.PHONY : test04_param
+
+# fast build rule for target.
+test04_param/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test04_param.dir/build.make plumbing_test/CMakeFiles/test04_param.dir/build
+.PHONY : test04_param/fast
+
+# Convenience name for target.
 plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
 	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 .PHONY : plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
@@ -518,6 +533,33 @@ src/test03_service_client.cpp.s:
 	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test03_service_client.dir/build.make plumbing_test/CMakeFiles/test03_service_client.dir/src/test03_service_client.cpp.s
 .PHONY : src/test03_service_client.cpp.s
 
+src/test04_param.o: src/test04_param.cpp.o
+
+.PHONY : src/test04_param.o
+
+# target to build an object file
+src/test04_param.cpp.o:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test04_param.dir/build.make plumbing_test/CMakeFiles/test04_param.dir/src/test04_param.cpp.o
+.PHONY : src/test04_param.cpp.o
+
+src/test04_param.i: src/test04_param.cpp.i
+
+.PHONY : src/test04_param.i
+
+# target to preprocess a source file
+src/test04_param.cpp.i:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test04_param.dir/build.make plumbing_test/CMakeFiles/test04_param.dir/src/test04_param.cpp.i
+.PHONY : src/test04_param.cpp.i
+
+src/test04_param.s: src/test04_param.cpp.s
+
+.PHONY : src/test04_param.s
+
+# target to generate assembly for a file
+src/test04_param.cpp.s:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test04_param.dir/build.make plumbing_test/CMakeFiles/test04_param.dir/src/test04_param.cpp.s
+.PHONY : src/test04_param.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -537,6 +579,7 @@ help:
 	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... turtlesim_generate_messages_py"
 	@echo "... install"
+	@echo "... test04_param"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
@@ -558,6 +601,9 @@ help:
 	@echo "... src/test03_service_client.o"
 	@echo "... src/test03_service_client.i"
 	@echo "... src/test03_service_client.s"
+	@echo "... src/test04_param.o"
+	@echo "... src/test04_param.i"
+	@echo "... src/test04_param.s"
 .PHONY : help
 
 

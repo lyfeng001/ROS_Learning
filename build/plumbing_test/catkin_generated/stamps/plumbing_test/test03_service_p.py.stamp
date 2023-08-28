@@ -5,7 +5,7 @@ from turtlesim.srv import *
 
 
 if __name__ == "__main__":
-    rospy.init("fuwu")
+    rospy.init_node("fuwu")
     client = rospy.ServiceProxy("/spawn",Spawn)
     request = SpawnRequest()
     request.x = 4.5

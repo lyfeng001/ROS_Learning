@@ -138,6 +138,7 @@ include_directories(
 add_executable(test01_pub_twist src/test01_pub_twist.cpp)
 add_executable(test02_sub_pose src/test02_sub_pose.cpp)
 add_executable(test03_service_client src/test03_service_client.cpp)
+add_executable(test04_param src/test04_param.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,6 +151,7 @@ add_executable(test03_service_client src/test03_service_client.cpp)
 add_dependencies(test01_pub_twist ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(test02_sub_pose ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(test03_service_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(test04_param ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(test01_pub_twist
@@ -161,7 +163,9 @@ target_link_libraries(test02_sub_pose
 target_link_libraries(test03_service_client
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries(test04_param
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
@@ -181,6 +185,10 @@ catkin_install_python(PROGRAMS
 )
 catkin_install_python(PROGRAMS
   scripts/test03_service_p.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+catkin_install_python(PROGRAMS
+  scripts/test04_param_p.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 ## Mark executables for installation
