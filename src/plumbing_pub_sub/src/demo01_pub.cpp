@@ -5,7 +5,9 @@ int main(int argc, char *argv[])
 {
     /* code */
     setlocale(LC_ALL,""); 
-    ros::init(argc,argv,"erGouZi");
+    //给节点后缀随机数，避免重名
+    ros::init(argc,argv,"erGouZi", ros::init_options::AnonymousName);
+
     ros::NodeHandle nh;
     ros::Publisher pub = nh.advertise<std_msgs::String>("fang",10);
     std_msgs::String msgs;

@@ -1,2 +1,2 @@
-helloworld:plumbing_param_server:plumbing_pub_sub:plumbing_server_client:plumbing_test:snake_test
+helloworld:plumbing_api:plumbing_param_server:plumbing_pub_sub:plumbing_server_client:plumbing_test:snake_test
 -DCATKIN_DEVEL_PREFIX=/home/f/catkin_us/devel -DCMAKE_INSTALL_PREFIX=/home/f/catkin_us/install -G Unix Makefiles
