@@ -11,7 +11,10 @@
         "/home/f/catkin_us/src/helloworld/include/**",
         "/home/f/catkin_us/src/snake_test/include/**",
         "/usr/include/**",
-        "/home/f/catkin_us/devel/include/**"
+        "/home/f/catkin_us/devel/include/**",
+        "/home/f/catkin_us/src/plumbing_head/include/**",
+        "/home/f/catkin_us/src/plumbing_src/include/**"
+
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

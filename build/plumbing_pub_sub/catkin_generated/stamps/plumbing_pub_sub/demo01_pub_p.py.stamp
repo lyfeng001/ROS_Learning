@@ -1,14 +1,19 @@
 #! /usr/bin/env python
+import sys
+sys.path.append("/home/f/catkin_us/src/plumbing_pub_sub/scripts")
+
 
 import rospy
 from std_msgs.msg import String
-
+import tools
 
 
 if __name__ == "__main__":
 
     rospy.init_node("erGouZi")
     pub = rospy.Publisher("che",String,queue_size=10)
+
+    rospy.loginfo("num=%d",tools.num)
     msgs = String()
     rate = rospy.Rate(1)
     count = 0

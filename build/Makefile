@@ -493,6 +493,19 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named demo02_api_log
+
+# Build rule for target.
+demo02_api_log: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo02_api_log
+.PHONY : demo02_api_log
+
+# fast build rule for target.
+demo02_api_log/fast:
+	$(MAKE) -f plumbing_api/CMakeFiles/demo02_api_log.dir/build.make plumbing_api/CMakeFiles/demo02_api_log.dir/build
+.PHONY : demo02_api_log/fast
+
+#=============================================================================
 # Target rules for targets named demo01_api_time
 
 # Build rule for target.
@@ -504,6 +517,19 @@ demo01_api_time: cmake_check_build_system
 demo01_api_time/fast:
 	$(MAKE) -f plumbing_api/CMakeFiles/demo01_api_time.dir/build.make plumbing_api/CMakeFiles/demo01_api_time.dir/build
 .PHONY : demo01_api_time/fast
+
+#=============================================================================
+# Target rules for targets named hello
+
+# Build rule for target.
+hello: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hello
+.PHONY : hello
+
+# fast build rule for target.
+hello/fast:
+	$(MAKE) -f plumbing_head/CMakeFiles/hello.dir/build.make plumbing_head/CMakeFiles/hello.dir/build
+.PHONY : hello/fast
 
 #=============================================================================
 # Target rules for targets named demo03_param_del
@@ -933,6 +959,32 @@ plumbing_server_client_genlisp: cmake_check_build_system
 plumbing_server_client_genlisp/fast:
 	$(MAKE) -f plumbing_server_client/CMakeFiles/plumbing_server_client_genlisp.dir/build.make plumbing_server_client/CMakeFiles/plumbing_server_client_genlisp.dir/build
 .PHONY : plumbing_server_client_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named use_hello
+
+# Build rule for target.
+use_hello: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 use_hello
+.PHONY : use_hello
+
+# fast build rule for target.
+use_hello/fast:
+	$(MAKE) -f plumbing_src/CMakeFiles/use_hello.dir/build.make plumbing_src/CMakeFiles/use_hello.dir/build
+.PHONY : use_hello/fast
+
+#=============================================================================
+# Target rules for targets named plumbingsrc
+
+# Build rule for target.
+plumbingsrc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 plumbingsrc
+.PHONY : plumbingsrc
+
+# fast build rule for target.
+plumbingsrc/fast:
+	$(MAKE) -f plumbing_src/CMakeFiles/plumbingsrc.dir/build.make plumbing_src/CMakeFiles/plumbingsrc.dir/build
+.PHONY : plumbingsrc/fast
 
 #=============================================================================
 # Target rules for targets named test03_service_client
@@ -2519,7 +2571,9 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... demo02_api_log"
 	@echo "... demo01_api_time"
+	@echo "... hello"
 	@echo "... demo03_param_del"
 	@echo "... demo02_param_get"
 	@echo "... demo01_param_set"
@@ -2553,6 +2607,8 @@ help:
 	@echo "... plumbing_server_client_generate_messages_lisp"
 	@echo "... plumbing_server_client_generate_messages_py"
 	@echo "... plumbing_server_client_genlisp"
+	@echo "... use_hello"
+	@echo "... plumbingsrc"
 	@echo "... test03_service_client"
 	@echo "... test02_sub_pose"
 	@echo "... std_srvs_generate_messages_py"

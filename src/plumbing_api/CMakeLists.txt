@@ -134,6 +134,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(demo01_api_time src/demo01_api_time.cpp)
+add_executable(demo02_api_log src/demo02_api_log.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -149,7 +150,9 @@ add_executable(demo01_api_time src/demo01_api_time.cpp)
 target_link_libraries(demo01_api_time
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries(demo02_api_log
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
@@ -159,10 +162,10 @@ target_link_libraries(demo01_api_time
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+  scripts/demo01_api_time_p.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html

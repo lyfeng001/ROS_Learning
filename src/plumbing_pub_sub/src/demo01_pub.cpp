@@ -18,6 +18,10 @@ int main(int argc, char *argv[])
 
     while (ros::ok())
     {
+        if (count >= 50)
+        {
+            ros::shutdown();//关闭节点
+        }
         count++;
         std::stringstream ss;
         ss << "hello ---> "<<count;

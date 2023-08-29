@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+plumbing_api/CMakeFiles/demo02_api_log.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_api/CMakeFiles/demo02_api_log.dir/rule
+.PHONY : plumbing_api/CMakeFiles/demo02_api_log.dir/rule
+
+# Convenience name for target.
+demo02_api_log: plumbing_api/CMakeFiles/demo02_api_log.dir/rule
+
+.PHONY : demo02_api_log
+
+# fast build rule for target.
+demo02_api_log/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_api/CMakeFiles/demo02_api_log.dir/build.make plumbing_api/CMakeFiles/demo02_api_log.dir/build
+.PHONY : demo02_api_log/fast
+
+# Convenience name for target.
 plumbing_api/CMakeFiles/demo01_api_time.dir/rule:
 	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_api/CMakeFiles/demo01_api_time.dir/rule
 .PHONY : plumbing_api/CMakeFiles/demo01_api_time.dir/rule
@@ -209,6 +224,33 @@ src/demo01_api_time.cpp.s:
 	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_api/CMakeFiles/demo01_api_time.dir/build.make plumbing_api/CMakeFiles/demo01_api_time.dir/src/demo01_api_time.cpp.s
 .PHONY : src/demo01_api_time.cpp.s
 
+src/demo02_api_log.o: src/demo02_api_log.cpp.o
+
+.PHONY : src/demo02_api_log.o
+
+# target to build an object file
+src/demo02_api_log.cpp.o:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_api/CMakeFiles/demo02_api_log.dir/build.make plumbing_api/CMakeFiles/demo02_api_log.dir/src/demo02_api_log.cpp.o
+.PHONY : src/demo02_api_log.cpp.o
+
+src/demo02_api_log.i: src/demo02_api_log.cpp.i
+
+.PHONY : src/demo02_api_log.i
+
+# target to preprocess a source file
+src/demo02_api_log.cpp.i:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_api/CMakeFiles/demo02_api_log.dir/build.make plumbing_api/CMakeFiles/demo02_api_log.dir/src/demo02_api_log.cpp.i
+.PHONY : src/demo02_api_log.cpp.i
+
+src/demo02_api_log.s: src/demo02_api_log.cpp.s
+
+.PHONY : src/demo02_api_log.s
+
+# target to generate assembly for a file
+src/demo02_api_log.cpp.s:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_api/CMakeFiles/demo02_api_log.dir/build.make plumbing_api/CMakeFiles/demo02_api_log.dir/src/demo02_api_log.cpp.s
+.PHONY : src/demo02_api_log.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,10 +264,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... demo02_api_log"
 	@echo "... demo01_api_time"
 	@echo "... src/demo01_api_time.o"
 	@echo "... src/demo01_api_time.i"
 	@echo "... src/demo01_api_time.s"
+	@echo "... src/demo02_api_log.o"
+	@echo "... src/demo02_api_log.i"
+	@echo "... src/demo02_api_log.s"
 .PHONY : help
 
 
