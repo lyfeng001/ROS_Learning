@@ -35,6 +35,14 @@
 /home/f/catkin_us/build/gtest/googletest/CMakeFiles/test.dir
 /home/f/catkin_us/build/gtest/googletest/CMakeFiles/gtest_main.dir
 /home/f/catkin_us/build/gtest/googletest/CMakeFiles/gtest.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/install/strip.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/install/local.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/install.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/list_install_components.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/rebuild_cache.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/edit_cache.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/test.dir
+/home/f/catkin_us/build/plumbing_my/CMakeFiles/_catkin_empty_exported_target.dir
 /home/f/catkin_us/build/helloworld/CMakeFiles/install/local.dir
 /home/f/catkin_us/build/helloworld/CMakeFiles/rebuild_cache.dir
 /home/f/catkin_us/build/helloworld/CMakeFiles/edit_cache.dir

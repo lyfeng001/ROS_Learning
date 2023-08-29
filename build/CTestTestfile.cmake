@@ -5,6 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("plumbing_my")
 subdirs("helloworld")
 subdirs("plumbing_api")
 subdirs("plumbing_head")
