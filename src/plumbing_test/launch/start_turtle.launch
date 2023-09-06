@@ -1,5 +1,8 @@
 <!-- <launch deprecated="outdated"> -->
 <launch>
+<!-- respawn="true" 节点关闭后自动重启 -->
+ <!-- required="true" 节点退出后关闭整个系统-->
+ <!-- ns="hello" 设置节点的命名空间 -->
     <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen" />
     <node pkg="turtlesim" type="turtle_teleop_key" name="key" output="screen" />
 
