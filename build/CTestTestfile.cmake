@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("plumbing_my")
+subdirs("teleop_twist_keyboard")
 subdirs("helloworld")
 subdirs("plumbing_api")
 subdirs("plumbing_head")

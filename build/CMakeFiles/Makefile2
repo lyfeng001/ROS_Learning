@@ -55,6 +55,7 @@ CMAKE_BINARY_DIR = /home/f/catkin_us/build
 # The main recursive "all" target.
 all: gtest/all
 all: plumbing_my/all
+all: teleop_twist_keyboard/all
 all: helloworld/all
 all: plumbing_api/all
 all: plumbing_head/all
@@ -70,6 +71,7 @@ all: snake_test/all
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: plumbing_my/preinstall
+preinstall: teleop_twist_keyboard/preinstall
 preinstall: helloworld/preinstall
 preinstall: plumbing_api/preinstall
 preinstall: plumbing_head/preinstall
@@ -90,6 +92,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: plumbing_my/clean
+clean: teleop_twist_keyboard/clean
 clean: helloworld/clean
 clean: plumbing_api/clean
 clean: plumbing_head/clean
@@ -524,6 +527,24 @@ snake_test/clean: snake_test/CMakeFiles/snake_control_gazebo_serpentine_PY.dir/c
 snake_test/clean: snake_test/CMakeFiles/control_msgs_generate_messages_cpp.dir/clean
 
 .PHONY : snake_test/clean
+
+#=============================================================================
+# Directory level rules for directory teleop_twist_keyboard
+
+# Recursive "all" directory target.
+teleop_twist_keyboard/all:
+
+.PHONY : teleop_twist_keyboard/all
+
+# Recursive "preinstall" directory target.
+teleop_twist_keyboard/preinstall:
+
+.PHONY : teleop_twist_keyboard/preinstall
+
+# Recursive "clean" directory target.
+teleop_twist_keyboard/clean:
+
+.PHONY : teleop_twist_keyboard/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir

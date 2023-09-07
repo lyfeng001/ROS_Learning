@@ -9,7 +9,6 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/f/catkin_us/devel:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/f/catkin_us/devel/lib:$LD_LIBRARY_PATH"
-export PATH='/opt/ros/noetic/bin:/usr/local/opt/openssl/bin:/usr/local/opt/openssl/bin:/home/f/Software/anaconda/anaconda3/bin:/home/f/Software/anaconda/anaconda3/condabin:/home/f/Software/anaconda/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/f/go/bin:/usr/local/go/bin:/home/f/go/bin'
 export PKG_CONFIG_PATH="/home/f/catkin_us/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/f/catkin_us/build'
 export PYTHONPATH="/home/f/catkin_us/devel/lib/python3/dist-packages:$PYTHONPATH"
