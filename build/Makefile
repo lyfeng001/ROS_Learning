@@ -1000,6 +1000,19 @@ plumbingsrc/fast:
 .PHONY : plumbingsrc/fast
 
 #=============================================================================
+# Target rules for targets named topic_name
+
+# Build rule for target.
+topic_name: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 topic_name
+.PHONY : topic_name
+
+# fast build rule for target.
+topic_name/fast:
+	$(MAKE) -f rename02_topic/CMakeFiles/topic_name.dir/build.make rename02_topic/CMakeFiles/topic_name.dir/build
+.PHONY : topic_name/fast
+
+#=============================================================================
 # Target rules for targets named test03_service_client
 
 # Build rule for target.
@@ -2623,6 +2636,7 @@ help:
 	@echo "... plumbing_server_client_genlisp"
 	@echo "... use_hello"
 	@echo "... plumbingsrc"
+	@echo "... topic_name"
 	@echo "... test03_service_client"
 	@echo "... test02_sub_pose"
 	@echo "... std_srvs_generate_messages_py"
