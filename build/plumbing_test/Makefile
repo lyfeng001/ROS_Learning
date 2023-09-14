@@ -99,18 +99,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -122,6 +110,18 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -168,49 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-plumbing_test/CMakeFiles/test03_service_client.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test03_service_client.dir/rule
-.PHONY : plumbing_test/CMakeFiles/test03_service_client.dir/rule
+plumbing_test/CMakeFiles/test04_param.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test04_param.dir/rule
+.PHONY : plumbing_test/CMakeFiles/test04_param.dir/rule
 
 # Convenience name for target.
-test03_service_client: plumbing_test/CMakeFiles/test03_service_client.dir/rule
+test04_param: plumbing_test/CMakeFiles/test04_param.dir/rule
 
-.PHONY : test03_service_client
+.PHONY : test04_param
 
 # fast build rule for target.
-test03_service_client/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test03_service_client.dir/build.make plumbing_test/CMakeFiles/test03_service_client.dir/build
-.PHONY : test03_service_client/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/test02_sub_pose.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test02_sub_pose.dir/rule
-.PHONY : plumbing_test/CMakeFiles/test02_sub_pose.dir/rule
-
-# Convenience name for target.
-test02_sub_pose: plumbing_test/CMakeFiles/test02_sub_pose.dir/rule
-
-.PHONY : test02_sub_pose
-
-# fast build rule for target.
-test02_sub_pose/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test02_sub_pose.dir/build.make plumbing_test/CMakeFiles/test02_sub_pose.dir/build
-.PHONY : test02_sub_pose/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/build.make plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
+test04_param/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test04_param.dir/build.make plumbing_test/CMakeFiles/test04_param.dir/build
+.PHONY : test04_param/fast
 
 # Convenience name for target.
 plumbing_test/CMakeFiles/turtlesim_generate_messages_cpp.dir/rule:
@@ -228,141 +198,6 @@ turtlesim_generate_messages_cpp/fast:
 .PHONY : turtlesim_generate_messages_cpp/fast
 
 # Convenience name for target.
-plumbing_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : plumbing_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: plumbing_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make plumbing_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_nodejs: plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-.PHONY : plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_py: plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
-
-.PHONY : turtlesim_generate_messages_py
-
-# fast build rule for target.
-turtlesim_generate_messages_py/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/build.make plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/build
-.PHONY : turtlesim_generate_messages_py/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/test04_param.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test04_param.dir/rule
-.PHONY : plumbing_test/CMakeFiles/test04_param.dir/rule
-
-# Convenience name for target.
-test04_param: plumbing_test/CMakeFiles/test04_param.dir/rule
-
-.PHONY : test04_param
-
-# fast build rule for target.
-test04_param/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test04_param.dir/build.make plumbing_test/CMakeFiles/test04_param.dir/build
-.PHONY : test04_param/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make plumbing_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : plumbing_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: plumbing_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make plumbing_test/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : plumbing_test/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: plumbing_test/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make plumbing_test/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/test01_pub_twist.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test01_pub_twist.dir/rule
-.PHONY : plumbing_test/CMakeFiles/test01_pub_twist.dir/rule
-
-# Convenience name for target.
-test01_pub_twist: plumbing_test/CMakeFiles/test01_pub_twist.dir/rule
-
-.PHONY : test01_pub_twist
-
-# fast build rule for target.
-test01_pub_twist/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test01_pub_twist.dir/build.make plumbing_test/CMakeFiles/test01_pub_twist.dir/build
-.PHONY : test01_pub_twist/fast
-
-# Convenience name for target.
-plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
-.PHONY : plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-turtlesim_generate_messages_lisp: plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
-
-.PHONY : turtlesim_generate_messages_lisp
-
-# fast build rule for target.
-turtlesim_generate_messages_lisp/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build.make plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build
-.PHONY : turtlesim_generate_messages_lisp/fast
-
-# Convenience name for target.
 plumbing_test/CMakeFiles/turtlesim_generate_messages_eus.dir/rule:
 	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
 .PHONY : plumbing_test/CMakeFiles/turtlesim_generate_messages_eus.dir/rule
@@ -376,6 +211,21 @@ turtlesim_generate_messages_eus: plumbing_test/CMakeFiles/turtlesim_generate_mes
 turtlesim_generate_messages_eus/fast:
 	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/turtlesim_generate_messages_eus.dir/build.make plumbing_test/CMakeFiles/turtlesim_generate_messages_eus.dir/build
 .PHONY : turtlesim_generate_messages_eus/fast
+
+# Convenience name for target.
+plumbing_test/CMakeFiles/test02_sub_pose.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test02_sub_pose.dir/rule
+.PHONY : plumbing_test/CMakeFiles/test02_sub_pose.dir/rule
+
+# Convenience name for target.
+test02_sub_pose: plumbing_test/CMakeFiles/test02_sub_pose.dir/rule
+
+.PHONY : test02_sub_pose
+
+# fast build rule for target.
+test02_sub_pose/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test02_sub_pose.dir/build.make plumbing_test/CMakeFiles/test02_sub_pose.dir/build
+.PHONY : test02_sub_pose/fast
 
 # Convenience name for target.
 plumbing_test/CMakeFiles/turtlesim_generate_messages_nodejs.dir/rule:
@@ -393,19 +243,19 @@ turtlesim_generate_messages_nodejs/fast:
 .PHONY : turtlesim_generate_messages_nodejs/fast
 
 # Convenience name for target.
-plumbing_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : plumbing_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_py: plumbing_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+std_srvs_generate_messages_py: plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_py
+.PHONY : std_srvs_generate_messages_py
 
 # fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make plumbing_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
+std_srvs_generate_messages_py/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/build.make plumbing_test/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
 
 # Convenience name for target.
 plumbing_test/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
@@ -451,6 +301,81 @@ std_srvs_generate_messages_lisp: plumbing_test/CMakeFiles/std_srvs_generate_mess
 std_srvs_generate_messages_lisp/fast:
 	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make plumbing_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
 .PHONY : std_srvs_generate_messages_lisp/fast
+
+# Convenience name for target.
+plumbing_test/CMakeFiles/test03_service_client.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test03_service_client.dir/rule
+.PHONY : plumbing_test/CMakeFiles/test03_service_client.dir/rule
+
+# Convenience name for target.
+test03_service_client: plumbing_test/CMakeFiles/test03_service_client.dir/rule
+
+.PHONY : test03_service_client
+
+# fast build rule for target.
+test03_service_client/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test03_service_client.dir/build.make plumbing_test/CMakeFiles/test03_service_client.dir/build
+.PHONY : test03_service_client/fast
+
+# Convenience name for target.
+plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+.PHONY : plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+
+# Convenience name for target.
+turtlesim_generate_messages_py: plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/rule
+
+.PHONY : turtlesim_generate_messages_py
+
+# fast build rule for target.
+turtlesim_generate_messages_py/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/build.make plumbing_test/CMakeFiles/turtlesim_generate_messages_py.dir/build
+.PHONY : turtlesim_generate_messages_py/fast
+
+# Convenience name for target.
+plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+.PHONY : plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_nodejs: plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+
+.PHONY : std_srvs_generate_messages_nodejs
+
+# fast build rule for target.
+std_srvs_generate_messages_nodejs/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make plumbing_test/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
+.PHONY : plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+turtlesim_generate_messages_lisp: plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/rule
+
+.PHONY : turtlesim_generate_messages_lisp
+
+# fast build rule for target.
+turtlesim_generate_messages_lisp/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build.make plumbing_test/CMakeFiles/turtlesim_generate_messages_lisp.dir/build
+.PHONY : turtlesim_generate_messages_lisp/fast
+
+# Convenience name for target.
+plumbing_test/CMakeFiles/test01_pub_twist.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 plumbing_test/CMakeFiles/test01_pub_twist.dir/rule
+.PHONY : plumbing_test/CMakeFiles/test01_pub_twist.dir/rule
+
+# Convenience name for target.
+test01_pub_twist: plumbing_test/CMakeFiles/test01_pub_twist.dir/rule
+
+.PHONY : test01_pub_twist
+
+# fast build rule for target.
+test01_pub_twist/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f plumbing_test/CMakeFiles/test01_pub_twist.dir/build.make plumbing_test/CMakeFiles/test01_pub_twist.dir/build
+.PHONY : test01_pub_twist/fast
 
 src/test01_pub_twist.o: src/test01_pub_twist.cpp.o
 
@@ -570,28 +495,23 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... test03_service_client"
-	@echo "... test02_sub_pose"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... install/local"
-	@echo "... turtlesim_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... turtlesim_generate_messages_py"
 	@echo "... install"
 	@echo "... test04_param"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... test01_pub_twist"
-	@echo "... turtlesim_generate_messages_lisp"
+	@echo "... install/local"
+	@echo "... turtlesim_generate_messages_cpp"
 	@echo "... turtlesim_generate_messages_eus"
+	@echo "... test02_sub_pose"
 	@echo "... install/strip"
 	@echo "... turtlesim_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... std_srvs_generate_messages_py"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... std_srvs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... test03_service_client"
+	@echo "... turtlesim_generate_messages_py"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... turtlesim_generate_messages_lisp"
+	@echo "... test01_pub_twist"
 	@echo "... src/test01_pub_twist.o"
 	@echo "... src/test01_pub_twist.i"
 	@echo "... src/test01_pub_twist.s"
