@@ -140,6 +140,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/f/catkin_us/build/plumbing_pub_sub/cmake_install.cmake")
   include("/home/f/catkin_us/build/plumbing_server_client/cmake_install.cmake")
   include("/home/f/catkin_us/build/plumbing_src/cmake_install.cmake")
+  include("/home/f/catkin_us/build/rename01_node/cmake_install.cmake")
   include("/home/f/catkin_us/build/plumbing_test/cmake_install.cmake")
   include("/home/f/catkin_us/build/snake_test/cmake_install.cmake")
 

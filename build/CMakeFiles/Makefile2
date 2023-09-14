@@ -63,6 +63,7 @@ all: plumbing_param_server/all
 all: plumbing_pub_sub/all
 all: plumbing_server_client/all
 all: plumbing_src/all
+all: rename01_node/all
 all: plumbing_test/all
 all: snake_test/all
 
@@ -79,6 +80,7 @@ preinstall: plumbing_param_server/preinstall
 preinstall: plumbing_pub_sub/preinstall
 preinstall: plumbing_server_client/preinstall
 preinstall: plumbing_src/preinstall
+preinstall: rename01_node/preinstall
 preinstall: plumbing_test/preinstall
 preinstall: snake_test/preinstall
 
@@ -100,6 +102,7 @@ clean: plumbing_param_server/clean
 clean: plumbing_pub_sub/clean
 clean: plumbing_server_client/clean
 clean: plumbing_src/clean
+clean: rename01_node/clean
 clean: plumbing_test/clean
 clean: snake_test/clean
 
@@ -401,6 +404,24 @@ plumbing_test/clean: plumbing_test/CMakeFiles/std_srvs_generate_messages_eus.dir
 plumbing_test/clean: plumbing_test/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean
 
 .PHONY : plumbing_test/clean
+
+#=============================================================================
+# Directory level rules for directory rename01_node
+
+# Recursive "all" directory target.
+rename01_node/all:
+
+.PHONY : rename01_node/all
+
+# Recursive "preinstall" directory target.
+rename01_node/preinstall:
+
+.PHONY : rename01_node/preinstall
+
+# Recursive "clean" directory target.
+rename01_node/clean:
+
+.PHONY : rename01_node/clean
 
 #=============================================================================
 # Directory level rules for directory snake_test

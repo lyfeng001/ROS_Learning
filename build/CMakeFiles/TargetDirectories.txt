@@ -153,6 +153,13 @@
 /home/f/catkin_us/build/plumbing_src/CMakeFiles/list_install_components.dir
 /home/f/catkin_us/build/plumbing_src/CMakeFiles/rebuild_cache.dir
 /home/f/catkin_us/build/plumbing_src/CMakeFiles/plumbingsrc.dir
+/home/f/catkin_us/build/rename01_node/CMakeFiles/install/strip.dir
+/home/f/catkin_us/build/rename01_node/CMakeFiles/install/local.dir
+/home/f/catkin_us/build/rename01_node/CMakeFiles/install.dir
+/home/f/catkin_us/build/rename01_node/CMakeFiles/list_install_components.dir
+/home/f/catkin_us/build/rename01_node/CMakeFiles/rebuild_cache.dir
+/home/f/catkin_us/build/rename01_node/CMakeFiles/edit_cache.dir
+/home/f/catkin_us/build/rename01_node/CMakeFiles/test.dir
 /home/f/catkin_us/build/plumbing_test/CMakeFiles/list_install_components.dir
 /home/f/catkin_us/build/plumbing_test/CMakeFiles/rebuild_cache.dir
 /home/f/catkin_us/build/plumbing_test/CMakeFiles/edit_cache.dir
