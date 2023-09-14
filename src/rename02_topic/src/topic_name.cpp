@@ -14,8 +14,15 @@ The "global" has the higher priority
     // namespace is /xxx    global: the same height as the ns
     //                      relative: under the ns
     //                      private: under the ns and the node, i.e., ns/node/topic 
-// The ndoe:
+
+// The node:
     // under the ns initially, while having the name in the "ros::init"
+
+// The parameter:
+    global:    "/"      
+    relative:  ""       
+    private:   "~"      
+
 
 */
 
