@@ -195,6 +195,7 @@
 /home/f/catkin_us/build/tf01_static/CMakeFiles/test.dir
 /home/f/catkin_us/build/tf01_static/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir
 /home/f/catkin_us/build/tf01_static/CMakeFiles/list_install_components.dir
+/home/f/catkin_us/build/tf01_static/CMakeFiles/demo02_static_sub.dir
 /home/f/catkin_us/build/tf01_static/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir
 /home/f/catkin_us/build/plumbing_test/CMakeFiles/list_install_components.dir
 /home/f/catkin_us/build/plumbing_test/CMakeFiles/rebuild_cache.dir

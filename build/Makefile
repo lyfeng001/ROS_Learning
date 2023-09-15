@@ -1273,6 +1273,19 @@ actionlib_msgs_generate_messages_lisp/fast:
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named demo02_static_sub
+
+# Build rule for target.
+demo02_static_sub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo02_static_sub
+.PHONY : demo02_static_sub
+
+# fast build rule for target.
+demo02_static_sub/fast:
+	$(MAKE) -f tf01_static/CMakeFiles/demo02_static_sub.dir/build.make tf01_static/CMakeFiles/demo02_static_sub.dir/build
+.PHONY : demo02_static_sub/fast
+
+#=============================================================================
 # Target rules for targets named actionlib_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -2670,6 +2683,7 @@ help:
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... actionlib_msgs_generate_messages_lisp"
+	@echo "... demo02_static_sub"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... test04_param"
 	@echo "... turtlesim_generate_messages_cpp"

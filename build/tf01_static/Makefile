@@ -468,6 +468,21 @@ actionlib_msgs_generate_messages_lisp/fast:
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+tf01_static/CMakeFiles/demo02_static_sub.dir/rule:
+	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 tf01_static/CMakeFiles/demo02_static_sub.dir/rule
+.PHONY : tf01_static/CMakeFiles/demo02_static_sub.dir/rule
+
+# Convenience name for target.
+demo02_static_sub: tf01_static/CMakeFiles/demo02_static_sub.dir/rule
+
+.PHONY : demo02_static_sub
+
+# fast build rule for target.
+demo02_static_sub/fast:
+	cd /home/f/catkin_us/build && $(MAKE) -f tf01_static/CMakeFiles/demo02_static_sub.dir/build.make tf01_static/CMakeFiles/demo02_static_sub.dir/build
+.PHONY : demo02_static_sub/fast
+
+# Convenience name for target.
 tf01_static/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
 	cd /home/f/catkin_us/build && $(MAKE) -f CMakeFiles/Makefile2 tf01_static/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
 .PHONY : tf01_static/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
@@ -509,6 +524,33 @@ src/demo01_static_pub.cpp.s:
 	cd /home/f/catkin_us/build && $(MAKE) -f tf01_static/CMakeFiles/demo01_static_pub.dir/build.make tf01_static/CMakeFiles/demo01_static_pub.dir/src/demo01_static_pub.cpp.s
 .PHONY : src/demo01_static_pub.cpp.s
 
+src/demo02_static_sub.o: src/demo02_static_sub.cpp.o
+
+.PHONY : src/demo02_static_sub.o
+
+# target to build an object file
+src/demo02_static_sub.cpp.o:
+	cd /home/f/catkin_us/build && $(MAKE) -f tf01_static/CMakeFiles/demo02_static_sub.dir/build.make tf01_static/CMakeFiles/demo02_static_sub.dir/src/demo02_static_sub.cpp.o
+.PHONY : src/demo02_static_sub.cpp.o
+
+src/demo02_static_sub.i: src/demo02_static_sub.cpp.i
+
+.PHONY : src/demo02_static_sub.i
+
+# target to preprocess a source file
+src/demo02_static_sub.cpp.i:
+	cd /home/f/catkin_us/build && $(MAKE) -f tf01_static/CMakeFiles/demo02_static_sub.dir/build.make tf01_static/CMakeFiles/demo02_static_sub.dir/src/demo02_static_sub.cpp.i
+.PHONY : src/demo02_static_sub.cpp.i
+
+src/demo02_static_sub.s: src/demo02_static_sub.cpp.s
+
+.PHONY : src/demo02_static_sub.s
+
+# target to generate assembly for a file
+src/demo02_static_sub.cpp.s:
+	cd /home/f/catkin_us/build && $(MAKE) -f tf01_static/CMakeFiles/demo02_static_sub.dir/build.make tf01_static/CMakeFiles/demo02_static_sub.dir/src/demo02_static_sub.cpp.s
+.PHONY : src/demo02_static_sub.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -542,10 +584,14 @@ help:
 	@echo "... test"
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... list_install_components"
+	@echo "... demo02_static_sub"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... src/demo01_static_pub.o"
 	@echo "... src/demo01_static_pub.i"
 	@echo "... src/demo01_static_pub.s"
+	@echo "... src/demo02_static_sub.o"
+	@echo "... src/demo02_static_sub.i"
+	@echo "... src/demo02_static_sub.s"
 .PHONY : help
 
 
