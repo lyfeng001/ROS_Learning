@@ -103,6 +103,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/f/catkin_us/src/teleop_twist_keyboard/teleop_twist_keyboard.py"
   "/home/f/catkin_us/src/tf01_static/CMakeLists.txt"
   "/home/f/catkin_us/src/tf01_static/package.xml"
+  "/home/f/catkin_us/src/tf01_static/scripts/demo01_static_pub_p.py"
+  "/home/f/catkin_us/src/tf01_static/scripts/demo02_static_sub_p.py"
   "/opt/ros/noetic/share/actionlib/cmake/actionlib-msg-extras.cmake"
   "/opt/ros/noetic/share/actionlib/cmake/actionlibConfig-version.cmake"
   "/opt/ros/noetic/share/actionlib/cmake/actionlibConfig.cmake"

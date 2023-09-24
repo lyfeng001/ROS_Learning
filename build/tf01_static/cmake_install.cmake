@@ -52,3 +52,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tf01_static" TYPE FILE FILES "/home/f/catkin_us/src/tf01_static/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/tf01_static" TYPE PROGRAM FILES "/home/f/catkin_us/build/tf01_static/catkin_generated/installspace/demo01_static_pub_p.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/tf01_static" TYPE PROGRAM FILES "/home/f/catkin_us/build/tf01_static/catkin_generated/installspace/demo02_static_sub_p.py")
+endif()
+

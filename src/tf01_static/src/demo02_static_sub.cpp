@@ -15,14 +15,14 @@ int main(int argc, char *argv[])
     tf2_ros::TransformListener listener(buffer);
 
     geometry_msgs::PointStamped ps;
-
+ 
     ps.header.frame_id = "laser";
     ps.header.stamp = ros::Time::now();
     ps.point.x = 2.0;
     ps.point.y = 3.0;
     ps.point.z = 5.0;
 
-    ros::Duration(2).sleep();
+    // ros::Duration(2).sleep();
 
     ros::Rate rate(10);
     while(ros::ok())
@@ -30,17 +30,23 @@ int main(int argc, char *argv[])
     {
         geometry_msgs::PointStamped ps_out;
 
-        ps_out = buffer.transform(ps,"base_link");
-        ROS_INFO("changed:(%0.2f,%0.2f,%0.2f)", ps_out.point.x, ps_out.point.y, ps_out.point.z);
+        try
+        {
+            ps_out = buffer.transform(ps,"base_link");
+            ROS_INFO("changed:(%0.2f,%0.2f,%0.2f)", ps_out.point.x, ps_out.point.y, ps_out.point.z);
 
-        rate.sleep();
-        ros::spinOnce();
+            rate.sleep();
+            ros::spinOnce();
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        
+
+        
 
     }
-
-
-
-
       
     return 0;
 }
