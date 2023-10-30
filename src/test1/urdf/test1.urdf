@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="test1">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0015857437689801 0.0649548176062998 0.00592774601114462"
+        rpy="0 0 0" />
+      <mass
+        value="7.79950985136614" />
+      <inertia
+        ixx="0.0283949962253378"
+        ixy="7.42397316213094E-06"
+        ixz="-2.81449130492087E-05"
+        iyy="0.0457009333828173"
+        iyz="0.000122723597431834"
+        izz="0.024498650637409" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test1/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test1/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Left_front_Link">
+    <inertial>
+      <origin
+        xyz="7.25114308349761E-05 -0.000142006916779708 -0.00788922966246353"
+        rpy="0 0 0" />
+      <mass
+        value="0.59406052726133" />
+      <inertia
+        ixx="8.40658362900536E-05"
+        ixy="-1.39029384282696E-06"
+        ixz="-2.54095648669022E-07"
+        iyy="8.70690236088907E-05"
+        iyz="2.09115365654764E-07"
+        izz="0.00010365472083844" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test1/meshes/Left_front_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://test1/meshes/Left_front_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_front_joint"
+    type="continuous">
+    <origin
+      xyz="0.18114 -0.22031 -0.026995"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_front_Link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>

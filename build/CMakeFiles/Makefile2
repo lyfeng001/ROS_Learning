@@ -67,6 +67,8 @@ all: rename01_node/all
 all: rename02_topic/all
 all: tf01_static/all
 all: plumbing_test/all
+all: test/all
+all: test1/all
 all: snake_test/all
 
 .PHONY : all
@@ -86,6 +88,8 @@ preinstall: rename01_node/preinstall
 preinstall: rename02_topic/preinstall
 preinstall: tf01_static/preinstall
 preinstall: plumbing_test/preinstall
+preinstall: test/preinstall
+preinstall: test1/preinstall
 preinstall: snake_test/preinstall
 
 .PHONY : preinstall
@@ -110,6 +114,8 @@ clean: rename01_node/clean
 clean: rename02_topic/clean
 clean: tf01_static/clean
 clean: plumbing_test/clean
+clean: test/clean
+clean: test1/clean
 clean: snake_test/clean
 
 .PHONY : clean
@@ -570,6 +576,42 @@ teleop_twist_keyboard/preinstall:
 teleop_twist_keyboard/clean:
 
 .PHONY : teleop_twist_keyboard/clean
+
+#=============================================================================
+# Directory level rules for directory test
+
+# Recursive "all" directory target.
+test/all:
+
+.PHONY : test/all
+
+# Recursive "preinstall" directory target.
+test/preinstall:
+
+.PHONY : test/preinstall
+
+# Recursive "clean" directory target.
+test/clean:
+
+.PHONY : test/clean
+
+#=============================================================================
+# Directory level rules for directory test1
+
+# Recursive "all" directory target.
+test1/all:
+
+.PHONY : test1/all
+
+# Recursive "preinstall" directory target.
+test1/preinstall:
+
+.PHONY : test1/preinstall
+
+# Recursive "clean" directory target.
+test1/clean:
+
+.PHONY : test1/clean
 
 #=============================================================================
 # Directory level rules for directory tf01_static

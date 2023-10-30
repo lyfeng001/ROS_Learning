@@ -18,10 +18,14 @@ if __name__ == "__main__":
 
     rate = rospy.Rate(10)
     while not rospy.is_shutdown():
-        ps_out = buffer.transform(ps, "base_link")
-        rospy.loginfo("changed:(%.2f, %.2f, %.2f)", ps_out.point.x, ps_out.point.y, ps_out.point.z)
+        try:
+            ps_out = buffer.transform(ps, "base_link")
+            rospy.loginfo("changed:(%.2f, %.2f, %.2f)", ps_out.point.x, ps_out.point.y, ps_out.point.z)
+
+            rate.sleep()
+        except:
+            rospy.logwarn("warning!!")
         
-        rate.sleep()
         
 
 
