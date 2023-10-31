@@ -44,6 +44,23 @@
       </geometry>
     </collision>
   </link>
+  <link name="base_foot_print">
+  </link>
+
+  <joint
+    name="base_foot_print_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.2"
+      rpy="0 0 3.14" />
+    <parent
+      link="base_foot_print" />
+    <child
+      link="base_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  
   <link
     name="Left_front_Link">
     <inertial>
@@ -191,7 +208,7 @@
     </collision>
   </link>
   <joint
-    name="Right_front_link"
+    name="Right_front_joint"
     type="continuous">
     <origin
       xyz="-0.2345 -0.22007 -0.028122"
@@ -297,7 +314,7 @@
     </collision>
   </link>
   <joint
-    name="Yaw_link"
+    name="Yaw_joint"
     type="continuous">
     <origin
       xyz="0 0 0.238"
