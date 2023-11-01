@@ -379,4 +379,66 @@
     <axis
       xyz="0.98193 0.18925 0" />
   </joint>
+  
+  
+  <transmission name="left_front_wheel_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Left_front_joint">
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Left_front_motor">
+	    <mechanicalReduction>1</mechanicalReduction>
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </actuator>
+  </transmission>
+  
+    <transmission name="left_back_wheel_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Left_back_joint">
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Left_back_motor">
+	    <mechanicalReduction>1</mechanicalReduction>
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </actuator>
+  </transmission>
+  
+    <transmission name="right_front_wheel_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Right_front_joint">
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Right_front_motor">
+	    <mechanicalReduction>1</mechanicalReduction>
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </actuator>
+  </transmission>
+  
+    <transmission name="right_back_wheel_trans">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="Right_back_joint">
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator name="Right_back_motor">
+	    <mechanicalReduction>1</mechanicalReduction>
+	    <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </actuator>
+  </transmission>
+
+	<gazebo>
+		<plugin name="mecanum_controller" filename="libgazebo_ros_planar_move.so">
+			<commandTopic>cmd_vel</commandTopic>
+				<odometryTopic>odom</odometryTopic> 
+		   	<odometryFrame>odom</odometryFrame>
+		   	<leftFrontJoint>Left_front_joint</leftFrontJoint>
+		   	<rightFrontJoint>Left_back_joint</rightFrontJoint>
+		   	<leftRearJoint>Right_front_joint</leftRearJoint>
+			<rightRearJoint>Right_back_joint</rightRearJoint>
+			<odometryRate>100</odometryRate>
+		   	<robotBaseFrame>base_footprint</robotBaseFrame>
+		   	<broadcastTF>1</broadcastTF>	
+		</plugin>
+	</gazebo>
+
+
 </robot>
