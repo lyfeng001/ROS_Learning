@@ -1481,6 +1481,19 @@ test01_pub_twist/fast:
 .PHONY : test01_pub_twist/fast
 
 #=============================================================================
+# Target rules for targets named demo01_dy_pub
+
+# Build rule for target.
+demo01_dy_pub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo01_dy_pub
+.PHONY : demo01_dy_pub
+
+# fast build rule for target.
+demo01_dy_pub/fast:
+	$(MAKE) -f tf02_dynamic/CMakeFiles/demo01_dy_pub.dir/build.make tf02_dynamic/CMakeFiles/demo01_dy_pub.dir/build
+.PHONY : demo01_dy_pub/fast
+
+#=============================================================================
 # Target rules for targets named rqt_plot
 
 # Build rule for target.
@@ -2699,6 +2712,7 @@ help:
 	@echo "... std_srvs_generate_messages_nodejs"
 	@echo "... turtlesim_generate_messages_lisp"
 	@echo "... test01_pub_twist"
+	@echo "... demo01_dy_pub"
 	@echo "... rqt_plot"
 	@echo "... publish_servo"
 	@echo "... snake_control_gazebo_raisinghead"
