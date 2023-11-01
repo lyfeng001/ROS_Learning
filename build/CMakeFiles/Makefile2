@@ -66,6 +66,7 @@ all: plumbing_src/all
 all: rename01_node/all
 all: rename02_topic/all
 all: tf01_static/all
+all: tf03_tfs/all
 all: plumbing_test/all
 all: tf02_dynamic/all
 all: test/all
@@ -88,6 +89,7 @@ preinstall: plumbing_src/preinstall
 preinstall: rename01_node/preinstall
 preinstall: rename02_topic/preinstall
 preinstall: tf01_static/preinstall
+preinstall: tf03_tfs/preinstall
 preinstall: plumbing_test/preinstall
 preinstall: tf02_dynamic/preinstall
 preinstall: test/preinstall
@@ -115,6 +117,7 @@ clean: plumbing_src/clean
 clean: rename01_node/clean
 clean: rename02_topic/clean
 clean: tf01_static/clean
+clean: tf03_tfs/clean
 clean: plumbing_test/clean
 clean: tf02_dynamic/clean
 clean: test/clean
@@ -673,6 +676,24 @@ tf02_dynamic/preinstall:
 tf02_dynamic/clean: tf02_dynamic/CMakeFiles/demo01_dy_pub.dir/clean
 
 .PHONY : tf02_dynamic/clean
+
+#=============================================================================
+# Directory level rules for directory tf03_tfs
+
+# Recursive "all" directory target.
+tf03_tfs/all:
+
+.PHONY : tf03_tfs/all
+
+# Recursive "preinstall" directory target.
+tf03_tfs/preinstall:
+
+.PHONY : tf03_tfs/preinstall
+
+# Recursive "clean" directory target.
+tf03_tfs/clean:
+
+.PHONY : tf03_tfs/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
